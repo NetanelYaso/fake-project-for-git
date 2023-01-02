@@ -10,6 +10,6 @@ const getMeAll = async (req, res) => {
   });
 };
 
-const getById = async ()=>{
+const getById =  ()=>{
   
 }
