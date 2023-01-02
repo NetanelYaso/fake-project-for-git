@@ -5,7 +5,7 @@ const {
     create,
     update,
     deleteOrder
-} = require("../controllers/order-ctrl");
+} = require("../controllers/orders-ctrl");
 
 
 router.get("/", getAll);
