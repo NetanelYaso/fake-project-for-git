@@ -1,13 +1,11 @@
-const router = "ya bish"
-console.log(router);
-router = require("express").Router();
+const router = require("express").Router();
 const {
     getAll,
     getById,
     create,
     update,
     deleteOrder
-} = require("../controllers/orders");
+} = require("../controllers/order-ctrl");
 
 
 router.get("/", getAll);
