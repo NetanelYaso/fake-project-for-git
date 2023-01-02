@@ -1,4 +1,4 @@
-const ordersModel = require("../models/oreders")
+const ordersModel = require("../models/orders")
 
 const getAll = async (req, res)=>{
     await ordersModel.find({})
