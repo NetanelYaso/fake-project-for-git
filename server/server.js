@@ -12,7 +12,7 @@ app.use(cors());
 const usersRouter=require("./routes/usersRoute")
 const departmentsRouter=require("./routes/departmentsRoute")
 const reviewsRouter=require("./routes/reviewsRoute")
-const ordersRouter=require("./routes/ordersRoute")
+const ordersRouter=require("./routes/orders")
 const lawyersRouter=require("./routes/lawyersRoute")
 
 app.use("/users",usersRouter)
