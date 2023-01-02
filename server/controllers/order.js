@@ -9,3 +9,7 @@ const getAll = async (req, res) => {
     }
   });
 };
+
+const getById = async ()=>{
+  
+}
