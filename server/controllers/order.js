@@ -5,7 +5,7 @@ const getAll = async (req, res) => {
     if (err) {
       res.status(400).json({ success: false, message: err });
     } else {
-      res.status(200).json({ success: true, message: result });
+      res.status(200).jason({ success: true, message: result });
     }
   });
 };
