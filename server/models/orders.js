@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const OrderSchema = mongoose.Schema({
   orderName:{type:String,required:true},
   orderNumber:{type:Number,required:true},
+  orderImage:{type:String},
 },
 {
   timeStamps:true
