@@ -29,20 +29,22 @@ const create = async (req, res) => {
   const { error } = validateLawyer(req.body.lawyer);
   if (error) return res.status(400).json(error);
     try {
-        const avatar  = req.body.avatar;
+        if(req.body.lawyer.avatar){
+        const avatar  = req.body.lawyer.avatar;
       const result = await cloudinary.uploader.upload(avatar, {
         folder: "team_project_lawyers",
       });
-      req.body.avatar= {
+      req.body.lawyer.avatar= {
         public_id: result.public_id,
         url: result.secure_url,
       }
-        await lawyerModel.insertMany(req.body)
+    }
+        await lawyerModel.insertMany(req.body.lawyer)
             .then((result) => res.status(300).json({ success: true, massage: result }))
-            .catch(error => res.status(400).json({ success: false, error }))
+            .catch(error => res.status(400).json({ success: false, error}))
     } 
     catch (err) {
-      return console.log({ success: false, err });
+      return console.log({ success: false, err});
     }
 }
 

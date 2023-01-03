@@ -9,10 +9,10 @@ const lawyersSchema = schema({
   name:{type:String, required:true},
   email:{type:String, required:true},
   phone:{type:String, required:true},
-  experience:{type:Number, required:true},
+  experience:{type:String, required:true},
     avatar: { 
-      public_id:{type:String}, 
-      url:{type:String}, 
+      public_id:{type:String, required:true}, 
+      url:{type:String, required:true}, 
     },
     reviews: [{
       type: mongoose.Schema.Types.ObjectId,
@@ -27,7 +27,7 @@ const lawyersSchema = schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "order",
     }],
-  });
+  }, { timestamps: true });
   const lawyerModel = mongoose.model("lawyer", lawyersSchema);
 
   module.exports = lawyerModel

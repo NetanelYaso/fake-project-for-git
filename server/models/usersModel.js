@@ -16,9 +16,8 @@ const usersSchema = schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "order"
     }],
-    createdAt:{type:Date, default:Date.now},
     lastSeen:{type:Date, default:Date.now},
-  });
+  },{ timestamps: true });
   const userModel = mongoose.model("user", usersSchema);
 
   module.exports = userModel

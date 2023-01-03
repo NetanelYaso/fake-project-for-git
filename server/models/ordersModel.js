@@ -15,9 +15,8 @@ const ordersSchema = schema({
     required: true,
     ref: "user",
   },
-  date: { type: Date, default: Date.now() },
   profit: { type: Number},
-});
+}, { timestamps: true });
 const orderModel = mongoose.model("order", ordersSchema);
 
 module.exports = orderModel

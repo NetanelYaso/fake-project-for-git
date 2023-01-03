@@ -14,8 +14,7 @@ const departmentsSchema = schema({
     required: true,
     ref: "lawyer",
   }],
-  lastUpdate: { type: Date, default: Date.now() },
-});
+}, { timestamps: true });
 const departmentModel = mongoose.model("department", departmentsSchema);
 
 module.exports = departmentModel
