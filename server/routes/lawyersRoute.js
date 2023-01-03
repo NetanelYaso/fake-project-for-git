@@ -5,7 +5,7 @@ const {
     create,
     update,
     deleteLawyer
-} = require("../controllers/lawyers-ctrl");
+} = require("../controllers/lawyer-ctrl");
 
 
 router.get("/", getAll);

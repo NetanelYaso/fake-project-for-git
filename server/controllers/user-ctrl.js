@@ -74,6 +74,7 @@ const register = async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.body.user.password, salt);
   req.body.user.password = hashedPassword;
   try {
+    if(req.body.user.avatar){
     const avatar = req.body.user.avatar;
     const result = await cloudinary.uploader.upload(avatar, {
       folder: "team_project_users",
@@ -82,10 +83,11 @@ const register = async (req, res) => {
       public_id: result.public_id,
       url: result.secure_url,
     };
+}
     await userModel
       .insertMany(req.body.user)
       .then(() => {
-        res.json({ massage: `success in adding ${req.body.user}` });
+        res.json({ massage: `success in adding ${req.body.user.email}` });
       })
       .catch((err) => console.log(err));
   } catch (err) {
@@ -98,6 +100,7 @@ const logInOrSignUpFunc = async (req, res) => {
   if (error) return res.status(400).json(error);
   const email = req.body.user.email;
   const user = await userModel.findOne({ email });
+  console.log(user);
   if (!user) {
     return register(req, res);
   } else {

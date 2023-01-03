@@ -4,13 +4,13 @@ const ordersModel= require ('./ordersModel')
 
 
 const usersSchema = schema({
-  name:{type:String, required:true},
+  name:{type:String},
   email:{type:String, required:true},
-  phone:{type:String, required:true},
+  phone:{type:String},
   password:{type:String, required:true},
     avatar: { 
-      public_id:{type:String, required:true}, 
-      url:{type:String, required:true}
+      public_id:{type:String}, 
+      url:{type:String}
     },
     orders:[{
         type: mongoose.Schema.Types.ObjectId,

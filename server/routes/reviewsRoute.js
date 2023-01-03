@@ -5,7 +5,7 @@ const {
     create,
     update,
     deleteReview
-} = require("../controllers/reviews-ctrl");
+} = require("../controllers/review-ctrl");
 
 
 router.get("/", getAll);

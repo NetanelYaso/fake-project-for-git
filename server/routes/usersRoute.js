@@ -5,7 +5,7 @@ const {
     logInOrSignUpFunc,
     update,
     deleteUser
-} = require("../controllers/users-ctrl");
+} = require("../controllers/user-ctrl");
 
 
 router.get("/", getAll);

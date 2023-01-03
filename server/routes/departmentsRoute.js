@@ -5,7 +5,7 @@ const {
     create,
     update,
     deleteDepartment
-} = require("../controllers/departments-ctrl");
+} = require("../controllers/department-ctrl");
 
 
 router.get("/", getAll);
