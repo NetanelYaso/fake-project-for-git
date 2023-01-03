@@ -1,8 +1,8 @@
 const userModel = require("../models/usersModel");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const validateUser = require("../validation/userValidation");
 const key = process.env.SECRET_KEY;
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const cloudinary = require("../DB/cloudinaryDB");
 
 const getAll = async (req, res) => {

@@ -1,3 +1,5 @@
+const departmentModel = require("../models/departmentsModel");
+const validateDepartment = require("../validation/departmentValidation");
 const getAll = async (req, res) => {
     await departmentModel.find({})
         .then((departments, error) => {
@@ -23,6 +25,8 @@ const getById = async (req, res) => {
 }
 
 const create = async (req, res) => {
+  const { error } = validateDepartment(req.body.department);
+  if (error) return res.status(400).json(error);
     await departmentModel.insertMany(req.body.department)
         .then((result) => res.status(300).json({ success: true, massage: result }))
         .catch(error => res.status(400).json({ success: false, error }))

@@ -11,8 +11,8 @@ const lawyersSchema = schema({
   phone:{type:String, required:true},
   experience:{type:Number, required:true},
     avatar: { 
-      public_id:{type:String, required:true}, 
-      url:{type:String, required:true}, 
+      public_id:{type:String}, 
+      url:{type:String}, 
     },
     reviews: [{
       type: mongoose.Schema.Types.ObjectId,

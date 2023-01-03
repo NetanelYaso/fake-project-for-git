@@ -1,3 +1,6 @@
+const lawyerModel = require("../models/lawyersModel");
+const validateLawyer = require("../validation/lawyerValidation");
+const key = process.env.SECRET_KEY;
 const getAll = async (req, res) => {
     await lawyerModel.find({})
         .then((lawyers, error) => {
@@ -23,6 +26,8 @@ const getById = async (req, res) => {
 }
 
 const create = async (req, res) => {
+  const { error } = validateLawyer(req.body.lawyer);
+  if (error) return res.status(400).json(error);
     try {
         const avatar  = req.body.avatar;
       const result = await cloudinary.uploader.upload(avatar, {

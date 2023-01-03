@@ -1,3 +1,5 @@
+const orderModel = require("../models/ordersModel");
+const validateOrder = require("../validation/orderValidation");
 const getAll = async (req, res) => {
     await orderModel.find({})
         .then((orders, error) => {
@@ -23,6 +25,8 @@ const getById = async (req, res) => {
 }
 
 const create = async (req, res) => {
+    const { error } = validateOrder(req.body.order);
+    if (error) return res.status(400).json(error);
     await orderModel.insertMany(req.body.order)
         .then((result) => res.status(300).json({ success: true, massage: result }))
         .catch(error => res.status(400).json({ success: false, error }))
