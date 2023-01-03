@@ -49,7 +49,7 @@ const create = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    lawyerModel.findByIdAndUpdate(req.body)
+    lawyerModel.findByIdAndUpdate(req.body.lawyer)
         .then((lawyers) => res.status(200).json({ sucsess: true, lawyers }))
         .catch(error => res.status(400).json({ success: false, error }))
 }

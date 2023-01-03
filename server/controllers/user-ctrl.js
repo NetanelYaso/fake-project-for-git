@@ -29,27 +29,6 @@ const getById = async (req, res) => {
     .catch((error) => res.status(400).json({ success: false, error }));
 };
 
-const create = async (req, res) => {
-  try {
-    const avatar = req.body.avatar;
-    const result = await cloudinary.uploader.upload(avatar, {
-      folder: "team_project_users",
-    });
-    req.body.avatar = {
-      public_id: result.public_id,
-      url: result.secure_url,
-    };
-    await userModel
-      .insertMany(req.body)
-      .then((result) =>
-        res.status(300).json({ success: true, massage: result })
-      )
-      .catch((error) => res.status(400).json({ success: false, error }));
-  } catch (err) {
-    return console.log({ success: false, err });
-  }
-};
-
 const logIn = async (req, res, user) => {
   const isMatch = await bcrypt.compare(
     `${req.body.user.password}`,
@@ -110,7 +89,7 @@ const logInOrSignUpFunc = async (req, res) => {
 
 const update = async (req, res) => {
   userModel
-    .findByIdAndUpdate(req.body)
+    .findByIdAndUpdate(req.body.user)
     .then((users) => res.status(200).json({ sucsess: true, users }))
     .catch((error) => res.status(400).json({ success: false, error }));
 };
@@ -124,7 +103,6 @@ const deleteUser = async (req, res) => {
 module.exports = {
   getAll,
   getById,
-  create,
   update,
   deleteUser,
   logInOrSignUpFunc,
