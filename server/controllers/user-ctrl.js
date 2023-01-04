@@ -37,7 +37,7 @@ const logIn = async (req, res, user) => {
   if (isMatch) {
     const payload = {
       id: user._id,
-      email: user.email,
+      email: user.email,  
     };
     jwt.sign(payload, key, (err, token) => {
       if (err) return res.status(400).json({ err });
@@ -106,4 +106,6 @@ module.exports = {
   update,
   deleteUser,
   logInOrSignUpFunc,
+  register,
+  logIn,
 };
