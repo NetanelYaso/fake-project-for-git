@@ -4,8 +4,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const port = 8080;
-require("./DB")
-app.use(express.json({ exteneded: true }));
+
+app.use(express.json({ extened: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
