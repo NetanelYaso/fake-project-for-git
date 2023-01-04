@@ -3,7 +3,7 @@ const validateUser = require("../validation/userValidation");
 const key = process.env.SECRET_KEY;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const cloudinary = require("../DB/cloudinaryDB");
+const cloudinary = require("../cloudinary/cloudinary");
 
 const getAll = async (req, res) => {
   await userModel.find({}).then((users, error) => {

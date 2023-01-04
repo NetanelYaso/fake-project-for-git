@@ -3,7 +3,7 @@ dotenv.config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = 8080;
+const port = process.env.PORT;
 require("./DB")
 app.use(express.json({ exteneded: true }));
 app.use(express.urlencoded({ extended: true }));
